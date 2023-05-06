@@ -1,16 +1,54 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+import sys
+from antlr4 import *
+from dist.protoLexer import protoLexer
+from dist.protoParser import protoParser
+from dist.protoVisitor import protoVisitor
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+class MyVisitor(protoVisitor):
+    def __init__(self, memory):
+        super().__init__()
+        self.memory = {} if not memory else memory
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    def visitPrintstmt(self, ctx: protoParser.PrintstmtContext):
+        return self.visit(ctx.expression())
+
+    def visitInteger(self, ctx: protoParser.IntegerContext):
+        return int(ctx.getText())
+
+    def visitAssignstmt(self, ctx:protoParser.AssignstmtContext):
+        name = ctx.NAME().getText()
+        value = self.visit(ctx.expression())
+        self.memory[name] = value
+
+    def visitIdentifier(self, ctx: protoParser.IdentifierContext):
+        return self.memory[ctx.NAME().getText()] if ctx.NAME().getText() in self.memory else 0
+
+    def getMemory(self):
+        return self.memory
+
+    def visitExpression(self, ctx:protoParser.ExpressionContext):
+        left = self.visit(ctx.term(0))
+        right = ctx.term(1)
+        if right:
+            return left + self.visit(right)
+        else:
+            return left
+
+
+if __name__ == "__main__":
+    mem = {}
+    while 1:
+        data = InputStream(input(">>> "))
+        # lexer
+        lexer = protoLexer(data)
+        stream = CommonTokenStream(lexer)
+        # parser
+        parser = protoParser(stream)
+        tree = parser.program()
+        # evaluator
+        visitor = MyVisitor(mem)
+        output = visitor.visit(tree)
+        mem = visitor.getMemory()
+        if output:
+            print(output)

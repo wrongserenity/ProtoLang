@@ -6,84 +6,119 @@ program       :
 
 // Parse rule for variable declarations
 
-declaration   :
-              INT NAME SEMICOLON
+declaration   : INT ID SEMICOLON  #intDecl
+              | FLT ID SEMICOLON  #fltDecl
               ;
 
 // Parse rule for statements
 
-statement      :
-               ifstmt
-             | printstmt
-             | assignstmt
-               ;
+statement   : ifstmt
+            | whilestmt
+            | printstmt
+            | assignstmt
+            ;
 
-// Parse rule for if statements
+// statement rules
 
 ifstmt      :
-            IF LPAREN identifier EQUAL integer RPAREN
-            statement*
+            IF condblock
+            (ELSE IF condblock)*
+            (ELSE statement*)?
             ENDIF
             ;
 
-// Parse rule for print statements
+
+
+whilestmt   :
+            WHILE LPAREN expr RPAREN
+            statement*
+            ENDWHILE
+            ;
 
 printstmt      :
-               PRINT expression SEMICOLON
+               PRINT expr SEMICOLON
                ;
 
-// Parse rule for assignment statements
-
 assignstmt      :
-                NAME ASSIGN expression SEMICOLON
+                ID ASSIGN expr SEMICOLON
                 ;
+
+condblock   : LPAREN expr RPAREN
+            statement*
+            ;
 
 // Parse rule for expressions
 
-expression      :
-                term
-              | term PLUS term
-                ;
+expr    : MINUS expr                           #unaryMinusExpr
+        | NOT expr                             #notExpr
+        | expr op=(MULT | DIV | MOD) expr      #multiplicationExpr
+        | expr op=(PLUS | MINUS) expr          #additiveExpr
+        | expr op=(LTEQ | GTEQ | LT | GT) expr #relationalExpr
+        | expr op=(EQ | NEQ) expr              #equalityExpr
+        | expr AND expr                        #andExpr
+        | expr OR expr                         #orExpr
+        | term                                 #termExpr
+        ;
 
 // Parse rule for terms
 
-term          :
-              identifier
-            | integer
-              ;
+term    : LPAREN expr RPAREN    #parenAtom
+        | INTEGER               #integerAtom
+        | FLOAT                 #floatAtom
+        | (TRUE | FALSE)        #booleanAtom
+        | ID                    #idAtom
+        ;
 
-// Parse rule for identifiers
-
-identifier   : NAME  ;
-
-// Parse rule for numbers
-
-integer      : INTEGER  ;
 
 // Reserved Keywords
 ////////////////////////////////
 
 IF: 'if';
+ELSE : 'else';
 ENDIF: 'endif';
+WHILE: 'while';
+ENDWHILE: 'endwhile';
 PRINT: 'print';
 INT: 'int';
+FLT: 'float';
 
 // Operators
-PLUS: '+';
-EQUAL: '==';
-ASSIGN: '=';
-NOTEQUAL: '!=';
+OR : '||';
+AND : '&&';
+EQ : '==';
+NEQ : '!=';
+GT : '>';
+LT : '<';
+GTEQ : '>=';
+LTEQ : '<=';
+PLUS : '+';
+MINUS : '-';
+MULT : '*';
+DIV : '/';
+MOD : '%';
+NOT : '!';
 
 // Semicolon and parentheses
 SEMICOLON: ';';
 LPAREN: '(';
 RPAREN: ')';
+ASSIGN: '=';
 
-// Integers
-INTEGER: [0-9][0-9]*;
+// Values
 
-// Variable names
-NAME: [a-z]+;
+NIL : 'nil';
+
+TRUE : 'true';
+FALSE : 'false';
+
+INTEGER: [0-9]+;
+
+FLOAT   : [0-9]+ '.' [0-9]*
+        | '.' [0-9]+
+        ;
+
+// Variable id
+ID: [a-z]+;
 
 // Ignore all white spaces
 WS: [ \t\r\n]+ -> skip ;

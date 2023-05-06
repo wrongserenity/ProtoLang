@@ -17,12 +17,21 @@ class protoListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by protoParser#declaration.
-    def enterDeclaration(self, ctx:protoParser.DeclarationContext):
+    # Enter a parse tree produced by protoParser#intDecl.
+    def enterIntDecl(self, ctx:protoParser.IntDeclContext):
         pass
 
-    # Exit a parse tree produced by protoParser#declaration.
-    def exitDeclaration(self, ctx:protoParser.DeclarationContext):
+    # Exit a parse tree produced by protoParser#intDecl.
+    def exitIntDecl(self, ctx:protoParser.IntDeclContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#fltDecl.
+    def enterFltDecl(self, ctx:protoParser.FltDeclContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#fltDecl.
+    def exitFltDecl(self, ctx:protoParser.FltDeclContext):
         pass
 
 
@@ -44,6 +53,15 @@ class protoListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by protoParser#whilestmt.
+    def enterWhilestmt(self, ctx:protoParser.WhilestmtContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#whilestmt.
+    def exitWhilestmt(self, ctx:protoParser.WhilestmtContext):
+        pass
+
+
     # Enter a parse tree produced by protoParser#printstmt.
     def enterPrintstmt(self, ctx:protoParser.PrintstmtContext):
         pass
@@ -62,39 +80,138 @@ class protoListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by protoParser#expression.
-    def enterExpression(self, ctx:protoParser.ExpressionContext):
+    # Enter a parse tree produced by protoParser#condblock.
+    def enterCondblock(self, ctx:protoParser.CondblockContext):
         pass
 
-    # Exit a parse tree produced by protoParser#expression.
-    def exitExpression(self, ctx:protoParser.ExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by protoParser#term.
-    def enterTerm(self, ctx:protoParser.TermContext):
-        pass
-
-    # Exit a parse tree produced by protoParser#term.
-    def exitTerm(self, ctx:protoParser.TermContext):
+    # Exit a parse tree produced by protoParser#condblock.
+    def exitCondblock(self, ctx:protoParser.CondblockContext):
         pass
 
 
-    # Enter a parse tree produced by protoParser#identifier.
-    def enterIdentifier(self, ctx:protoParser.IdentifierContext):
+    # Enter a parse tree produced by protoParser#notExpr.
+    def enterNotExpr(self, ctx:protoParser.NotExprContext):
         pass
 
-    # Exit a parse tree produced by protoParser#identifier.
-    def exitIdentifier(self, ctx:protoParser.IdentifierContext):
+    # Exit a parse tree produced by protoParser#notExpr.
+    def exitNotExpr(self, ctx:protoParser.NotExprContext):
         pass
 
 
-    # Enter a parse tree produced by protoParser#integer.
-    def enterInteger(self, ctx:protoParser.IntegerContext):
+    # Enter a parse tree produced by protoParser#unaryMinusExpr.
+    def enterUnaryMinusExpr(self, ctx:protoParser.UnaryMinusExprContext):
         pass
 
-    # Exit a parse tree produced by protoParser#integer.
-    def exitInteger(self, ctx:protoParser.IntegerContext):
+    # Exit a parse tree produced by protoParser#unaryMinusExpr.
+    def exitUnaryMinusExpr(self, ctx:protoParser.UnaryMinusExprContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#termExpr.
+    def enterTermExpr(self, ctx:protoParser.TermExprContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#termExpr.
+    def exitTermExpr(self, ctx:protoParser.TermExprContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#multiplicationExpr.
+    def enterMultiplicationExpr(self, ctx:protoParser.MultiplicationExprContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#multiplicationExpr.
+    def exitMultiplicationExpr(self, ctx:protoParser.MultiplicationExprContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#orExpr.
+    def enterOrExpr(self, ctx:protoParser.OrExprContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#orExpr.
+    def exitOrExpr(self, ctx:protoParser.OrExprContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#additiveExpr.
+    def enterAdditiveExpr(self, ctx:protoParser.AdditiveExprContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#additiveExpr.
+    def exitAdditiveExpr(self, ctx:protoParser.AdditiveExprContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#relationalExpr.
+    def enterRelationalExpr(self, ctx:protoParser.RelationalExprContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#relationalExpr.
+    def exitRelationalExpr(self, ctx:protoParser.RelationalExprContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#equalityExpr.
+    def enterEqualityExpr(self, ctx:protoParser.EqualityExprContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#equalityExpr.
+    def exitEqualityExpr(self, ctx:protoParser.EqualityExprContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#andExpr.
+    def enterAndExpr(self, ctx:protoParser.AndExprContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#andExpr.
+    def exitAndExpr(self, ctx:protoParser.AndExprContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#parenAtom.
+    def enterParenAtom(self, ctx:protoParser.ParenAtomContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#parenAtom.
+    def exitParenAtom(self, ctx:protoParser.ParenAtomContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#integerAtom.
+    def enterIntegerAtom(self, ctx:protoParser.IntegerAtomContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#integerAtom.
+    def exitIntegerAtom(self, ctx:protoParser.IntegerAtomContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#floatAtom.
+    def enterFloatAtom(self, ctx:protoParser.FloatAtomContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#floatAtom.
+    def exitFloatAtom(self, ctx:protoParser.FloatAtomContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#booleanAtom.
+    def enterBooleanAtom(self, ctx:protoParser.BooleanAtomContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#booleanAtom.
+    def exitBooleanAtom(self, ctx:protoParser.BooleanAtomContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#idAtom.
+    def enterIdAtom(self, ctx:protoParser.IdAtomContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#idAtom.
+    def exitIdAtom(self, ctx:protoParser.IdAtomContext):
         pass
 
 

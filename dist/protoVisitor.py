@@ -14,8 +14,13 @@ class protoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by protoParser#declaration.
-    def visitDeclaration(self, ctx:protoParser.DeclarationContext):
+    # Visit a parse tree produced by protoParser#intDecl.
+    def visitIntDecl(self, ctx:protoParser.IntDeclContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by protoParser#fltDecl.
+    def visitFltDecl(self, ctx:protoParser.FltDeclContext):
         return self.visitChildren(ctx)
 
 
@@ -29,6 +34,11 @@ class protoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by protoParser#whilestmt.
+    def visitWhilestmt(self, ctx:protoParser.WhilestmtContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by protoParser#printstmt.
     def visitPrintstmt(self, ctx:protoParser.PrintstmtContext):
         return self.visitChildren(ctx)
@@ -39,23 +49,78 @@ class protoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by protoParser#expression.
-    def visitExpression(self, ctx:protoParser.ExpressionContext):
+    # Visit a parse tree produced by protoParser#condblock.
+    def visitCondblock(self, ctx:protoParser.CondblockContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by protoParser#term.
-    def visitTerm(self, ctx:protoParser.TermContext):
+    # Visit a parse tree produced by protoParser#notExpr.
+    def visitNotExpr(self, ctx:protoParser.NotExprContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by protoParser#identifier.
-    def visitIdentifier(self, ctx:protoParser.IdentifierContext):
+    # Visit a parse tree produced by protoParser#unaryMinusExpr.
+    def visitUnaryMinusExpr(self, ctx:protoParser.UnaryMinusExprContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by protoParser#integer.
-    def visitInteger(self, ctx:protoParser.IntegerContext):
+    # Visit a parse tree produced by protoParser#termExpr.
+    def visitTermExpr(self, ctx:protoParser.TermExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by protoParser#multiplicationExpr.
+    def visitMultiplicationExpr(self, ctx:protoParser.MultiplicationExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by protoParser#orExpr.
+    def visitOrExpr(self, ctx:protoParser.OrExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by protoParser#additiveExpr.
+    def visitAdditiveExpr(self, ctx:protoParser.AdditiveExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by protoParser#relationalExpr.
+    def visitRelationalExpr(self, ctx:protoParser.RelationalExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by protoParser#equalityExpr.
+    def visitEqualityExpr(self, ctx:protoParser.EqualityExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by protoParser#andExpr.
+    def visitAndExpr(self, ctx:protoParser.AndExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by protoParser#parenAtom.
+    def visitParenAtom(self, ctx:protoParser.ParenAtomContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by protoParser#integerAtom.
+    def visitIntegerAtom(self, ctx:protoParser.IntegerAtomContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by protoParser#floatAtom.
+    def visitFloatAtom(self, ctx:protoParser.FloatAtomContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by protoParser#booleanAtom.
+    def visitBooleanAtom(self, ctx:protoParser.BooleanAtomContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by protoParser#idAtom.
+    def visitIdAtom(self, ctx:protoParser.IdAtomContext):
         return self.visitChildren(ctx)
 
 

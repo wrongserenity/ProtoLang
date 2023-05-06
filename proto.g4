@@ -1,4 +1,4 @@
-grammar MyGrammer;
+grammar proto;
 expr: left=expr op=('*'|'/') right=expr        # InfixExpr
     | left=expr op=('+'|'-') right=expr        # InfixExpr
     | atom=INT                                 # NumberExpr

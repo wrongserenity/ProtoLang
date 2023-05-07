@@ -7,7 +7,7 @@
 ## Особенности
 1. Можно вызвать команду, которая соберет все запрошенные построчно команды в файл с необходимым именем
 2. Возможность удобно задавать сразу несколько переменных
-3. Встроенный оператор, позволяющий узнать все текущие поля и функции у класса
+3. Встроенный оператор, позволяющий узнать все текущие поля и функции в памяти
 
 ## Функционал
 ### Декларирование
@@ -53,13 +53,20 @@
 
 ## Пример
 1. Запустить main.py
-2. Обработать файл test_foo.proto >  *readfile "test_foo";*  
+2. Обработать файл test_foo.proto:  
+```readfile "test_foo";```
 
-Внутри файла test_foo.proto можно найти основное использование операций:
+Внутри файла test_foo.proto можно найти использование основных операций:
+![Image alt](https://github.com/wrongserenity/ProgrammEngineeringLaboratoryWork/blob/main/images/test_foo.jpg)  
+Вот что выводит:  
+![Image alt](https://github.com/wrongserenity/ProgrammEngineeringLaboratoryWork/blob/main/images/test_foo_read_result.jpg)  
 
-Вот что выводит:
+Файл test_foo.proto был сгенерирован с помощью команды:
+```
+savelines "test_foo";
+```
 
 ## Служебное
 Для запуска требуется java послденей версии и указание пути antlr в PATH
 Команда для корректной генерации классов:
-*antlr4 -Dlanguage=Python3 proto.g4 -visitor -o dist*
+```antlr4 -Dlanguage=Python3 proto.g4 -visitor -o dist```

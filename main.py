@@ -1,17 +1,14 @@
-import sys
 from antlr4 import *
 from dist.protoLexer import protoLexer
 from dist.protoParser import protoParser
 from dist.protoVisitor import protoVisitor
 
-from copy import copy
-
 
 def logError(msg):
     if not isinstance(msg, str):
         logError("Can not log error: message is not string")
-
     print(msg)
+
 
 class Value:
     def __init__(self, value):
@@ -32,7 +29,6 @@ class Value:
     def __eq__(self, other):
         if other is None or not isinstance(other, Value):
             return False
-
         return Value(self.value == other.value)
 
     def __ne__(self, other):
@@ -92,6 +88,7 @@ class Value:
     def copy(self):
         return Value(self.value)
 
+
 class Function:
     def __init__(self, param_names, ctxBody:protoParser.FuncbodyContext, ctxRet:protoParser.FuncreturnContext):
         self.param_names = param_names
@@ -140,6 +137,8 @@ class MyVisitor(protoVisitor):
             last_return = self.visit(com)
         return last_return
 
+    # declarations
+
     def visitVarDecl(self, ctx:protoParser.VarDeclContext):
         for var_id in self.visit(ctx.idvarlist()):
             id_name = var_id.getText()
@@ -170,6 +169,8 @@ class MyVisitor(protoVisitor):
         value = self.visit(ctx.expr())
         for var_id in self.visit(ctx.idvarlist()):
             self.memory[var_id.getText()] = value.copy()
+
+    # atoms
 
     def visitIdAtom(self, ctx:protoParser.IdAtomContext):
         id_name = ctx.ID().getText()
@@ -226,7 +227,7 @@ class MyVisitor(protoVisitor):
     def visitStringAtom(self, ctx:protoParser.StringAtomContext):
         return Value(str(ctx.getText()[1:-1]))
 
-    # expr
+    # expressions
 
     def visitUnaryMinusExpr(self, ctx:protoParser.UnaryMinusExprContext):
         return -self.visit(ctx.expr())

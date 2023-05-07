@@ -17,21 +17,48 @@ class protoListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by protoParser#intDecl.
-    def enterIntDecl(self, ctx:protoParser.IntDeclContext):
+    # Enter a parse tree produced by protoParser#valDecl.
+    def enterValDecl(self, ctx:protoParser.ValDeclContext):
         pass
 
-    # Exit a parse tree produced by protoParser#intDecl.
-    def exitIntDecl(self, ctx:protoParser.IntDeclContext):
+    # Exit a parse tree produced by protoParser#valDecl.
+    def exitValDecl(self, ctx:protoParser.ValDeclContext):
         pass
 
 
-    # Enter a parse tree produced by protoParser#fltDecl.
-    def enterFltDecl(self, ctx:protoParser.FltDeclContext):
+    # Enter a parse tree produced by protoParser#funcDecl.
+    def enterFuncDecl(self, ctx:protoParser.FuncDeclContext):
         pass
 
-    # Exit a parse tree produced by protoParser#fltDecl.
-    def exitFltDecl(self, ctx:protoParser.FltDeclContext):
+    # Exit a parse tree produced by protoParser#funcDecl.
+    def exitFuncDecl(self, ctx:protoParser.FuncDeclContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#paramdecl.
+    def enterParamdecl(self, ctx:protoParser.ParamdeclContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#paramdecl.
+    def exitParamdecl(self, ctx:protoParser.ParamdeclContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#funcbody.
+    def enterFuncbody(self, ctx:protoParser.FuncbodyContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#funcbody.
+    def exitFuncbody(self, ctx:protoParser.FuncbodyContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#funcreturn.
+    def enterFuncreturn(self, ctx:protoParser.FuncreturnContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#funcreturn.
+    def exitFuncreturn(self, ctx:protoParser.FuncreturnContext):
         pass
 
 
@@ -77,6 +104,15 @@ class protoListener(ParseTreeListener):
 
     # Exit a parse tree produced by protoParser#assignstmt.
     def exitAssignstmt(self, ctx:protoParser.AssignstmtContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#savelinesstmt.
+    def enterSavelinesstmt(self, ctx:protoParser.SavelinesstmtContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#savelinesstmt.
+    def exitSavelinesstmt(self, ctx:protoParser.SavelinesstmtContext):
         pass
 
 
@@ -212,6 +248,42 @@ class protoListener(ParseTreeListener):
 
     # Exit a parse tree produced by protoParser#idAtom.
     def exitIdAtom(self, ctx:protoParser.IdAtomContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#funcAtom.
+    def enterFuncAtom(self, ctx:protoParser.FuncAtomContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#funcAtom.
+    def exitFuncAtom(self, ctx:protoParser.FuncAtomContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#stringAtom.
+    def enterStringAtom(self, ctx:protoParser.StringAtomContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#stringAtom.
+    def exitStringAtom(self, ctx:protoParser.StringAtomContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#funccall.
+    def enterFunccall(self, ctx:protoParser.FunccallContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#funccall.
+    def exitFunccall(self, ctx:protoParser.FunccallContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#parampass.
+    def enterParampass(self, ctx:protoParser.ParampassContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#parampass.
+    def exitParampass(self, ctx:protoParser.ParampassContext):
         pass
 
 

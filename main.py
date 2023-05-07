@@ -87,23 +87,64 @@ class Value:
     def __sub__(self, other):
         return Value(self.value - other.value)
 
+class Function:
+    def __init__(self, param_names, ctxBody:protoParser.FuncbodyContext, ctxRet:protoParser.FuncreturnContext):
+        self.param_names = param_names
+        self.context_body = ctxBody
+        self.context_return = ctxRet
+        self.func_mem = {}
+
+    def getAllMem(self, params, visitor_mem):
+        if len(params) != len(self.param_names):
+            logError("Func: expected " + str(len(self.param_names)) +
+                     " values, but received" + str(len(params)))
+            return Value(0)
+
+        for i in range(len(self.param_names)):
+            self.func_mem[self.param_names[i]] = params[i]
+
+        intersect = self.func_mem.keys() & visitor_mem.keys()
+        if len(intersect) > 0:
+            logError("Func: var name collision: " + str(intersect))
+            return Value(0)
+
+        all_mem = {**self.func_mem, **visitor_mem}
+        return all_mem
+
+    def getCtxBody(self):
+        return self.context_body
+
+    def getCtxRet(self):
+        return self.context_return
+
 
 class MyVisitor(protoVisitor):
-    def __init__(self, memory):
+    def __init__(self, memory, all_lines=None):
         super().__init__()
         self.memory = {} if not memory else memory
+        self.all_lines = [] if not all_lines else all_lines
 
-    def visitIntDecl(self, ctx:protoParser.IntDeclContext):
+    def visitValDecl(self, ctx:protoParser.ValDeclContext):
         id_name = ctx.ID().getText()
         if id_name in self.memory:
             logError("id '" + id_name + "' already in memory")
-        self.memory[id_name] = 0
+        self.memory[id_name] = Value(0)
 
-    def visitFltDecl(self, ctx:protoParser.FltDeclContext):
+    def visitFuncDecl(self, ctx:protoParser.FuncDeclContext):
         id_name = ctx.ID().getText()
         if id_name in self.memory:
             logError("id '" + id_name + "' already in memory")
-        self.memory[id_name] = .0
+        param_names = self.visit(ctx.paramdecl())
+        self.memory[id_name] = Function(param_names, ctx.funcbody(), ctx.funcreturn())
+
+    def visitParamdecl(self, ctx:protoParser.ParamdeclContext):
+        result = []
+        for id_val in ctx.ID():
+            result.append(id_val.getText())
+        return result
+
+    def visitFuncreturn(self, ctx:protoParser.FuncreturnContext):
+        return self.visit(ctx.expr())
 
     def visitAssignstmt(self, ctx:protoParser.AssignstmtContext):
         name = ctx.ID().getText()
@@ -114,8 +155,45 @@ class MyVisitor(protoVisitor):
         id_name = ctx.ID().getText()
         if not id_name in self.memory:
             logError("Has no '" + id_name + "' in memory")
-            return False
+            return Value(0)
         return self.memory[id_name]
+
+    def visitFuncAtom(self, ctx:protoParser.FuncAtomContext):
+        return self.visit(ctx.funccall())
+
+    def visitFunccall(self, ctx:protoParser.FunccallContext):
+        func_id = ctx.ID().getText()
+        if not func_id in self.memory:
+            logError("Has no function '" + func_id + "' in memory")
+            return Value(0)
+
+        func = self.memory[func_id]
+        param_pass = self.visit(ctx.parampass())
+
+        init_mem = self.memory.copy()
+        self.memory = func.getAllMem(param_pass, self.memory.copy())
+
+        self.visit(func.getCtxBody())
+
+        result = None
+        if not func.getCtxRet() is None:
+            result = self.visit(func.getCtxRet())
+
+        self.memory = init_mem
+        if not result is None:
+            return result
+
+    def visitParampass(self, ctx:protoParser.ParampassContext):
+        results = []
+        for expr in ctx.expr():
+            results.append(self.visit(expr))
+        return results
+
+
+    def visitFuncbody(self, ctx:protoParser.FuncbodyContext):
+        stats = ctx.statement()
+        for stat in stats:
+            self.visit(stat)
 
     def visitIntegerAtom(self, ctx:protoParser.IntegerAtomContext):
         return Value(int(ctx.getText()))
@@ -125,6 +203,9 @@ class MyVisitor(protoVisitor):
 
     def visitParenAtom(self, ctx:protoParser.ParenAtomContext):
         return self.visit(ctx.expr())
+
+    def visitStringAtom(self, ctx:protoParser.StringAtomContext):
+        return Value(str(ctx.getText()[1:-1]))
 
     # expr
 
@@ -221,23 +302,50 @@ class MyVisitor(protoVisitor):
                 self.visit(st)
             val = self.visit(ctx.expr())
 
+    def visitSavelinesstmt(self, ctx:protoParser.SavelinesstmtContext):
+        result_str = self.filterSavelines()
+
+
+        with open(str(self.visit(ctx.term())) + '.proto', 'w') as file:
+            file.write(result_str)
+
+    def filterSavelines(self):
+        lines_temp = self.all_lines.copy()
+        for i in range(len(lines_temp)):
+            if "func" in lines_temp[i]:
+                lines_temp[i] = lines_temp[i].replace(")", ")\n   ")
+                lines_temp[i] = lines_temp[i].replace("endfunc", "endfunc\n")
+                lines_temp[i] = lines_temp[i].replace(";", ";\n   ")
+        return '\n'.join(lines_temp)
+
+
+
+
     def getMemory(self):
         return self.memory
 
 
+def getVisitorResultAndMem(data_, oldmem, lines):
+    # lexer
+    lexer_ = protoLexer(data_)
+    stream_ = CommonTokenStream(lexer_)
+    # parser
+    parser_ = protoParser(stream_)
+    tree_ = parser_.program()
+    # evaluator
+    visitor_ = MyVisitor(oldmem, lines)
+    output_ = visitor_.visit(tree_)
+    mem_ = visitor_.getMemory()
+    return output_, mem_
+
+
 if __name__ == "__main__":
     mem = {}
+    lines = []
     while 1:
-        data = InputStream(input(">>> "))
-        # lexer
-        lexer = protoLexer(data)
-        stream = CommonTokenStream(lexer)
-        # parser
-        parser = protoParser(stream)
-        tree = parser.program()
-        # evaluator
-        visitor = MyVisitor(mem)
-        output = visitor.visit(tree)
-        mem = visitor.getMemory()
+        input_str = input(">>> ")
+        data = InputStream(input_str)
+        lines.append(input_str)
+        output, mem = getVisitorResultAndMem(data, mem, lines)
         if output:
             print(output)

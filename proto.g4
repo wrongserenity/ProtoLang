@@ -6,9 +6,15 @@ program       :
 
 // Parse rule for variable declarations
 
-declaration   : INT ID SEMICOLON  #intDecl
-              | FLT ID SEMICOLON  #fltDecl
-              ;
+declaration     : VAL ID SEMICOLON                                              #valDecl
+                | FUNC ID paramdecl funcbody funcreturn? ENDFUNC     #funcDecl
+                ;
+
+paramdecl : LPAREN ID? (COMMA ID)* RPAREN;
+
+funcbody : statement*;
+
+funcreturn : RETURN expr SEMICOLON;
 
 // Parse rule for statements
 
@@ -16,6 +22,8 @@ statement   : ifstmt
             | whilestmt
             | printstmt
             | assignstmt
+            | term
+            | savelinesstmt
             ;
 
 // statement rules
@@ -43,6 +51,10 @@ assignstmt      :
                 ID ASSIGN expr SEMICOLON
                 ;
 
+savelinesstmt   :
+                SAVELINES term SEMICOLON
+                ;
+
 condblock   : LPAREN expr RPAREN
             statement*
             ;
@@ -67,8 +79,13 @@ term    : LPAREN expr RPAREN    #parenAtom
         | FLOAT                 #floatAtom
         | (TRUE | FALSE)        #booleanAtom
         | ID                    #idAtom
+        | funccall              #funcAtom
+        | STRING                #stringAtom
         ;
 
+funccall : ID parampass;
+
+parampass :     LPAREN expr (COMMA expr)* RPAREN;
 
 // Reserved Keywords
 ////////////////////////////////
@@ -79,8 +96,13 @@ ENDIF: 'endif';
 WHILE: 'while';
 ENDWHILE: 'endwhile';
 PRINT: 'print';
-INT: 'int';
-FLT: 'float';
+
+VAL: 'val';
+FUNC: 'func';
+RETURN: 'return';
+ENDFUNC: 'endfunc';
+
+SAVELINES : 'savelines';
 
 // Operators
 OR : '||';
@@ -100,6 +122,7 @@ NOT : '!';
 
 // Semicolon and parentheses
 SEMICOLON: ';';
+COMMA: ',';
 LPAREN: '(';
 RPAREN: ')';
 ASSIGN: '=';
@@ -116,6 +139,10 @@ INTEGER: [0-9]+;
 FLOAT   : [0-9]+ '.' [0-9]*
         | '.' [0-9]+
         ;
+
+STRING
+ : '"' (~["\r\n] | '""')* '"'
+ ;
 
 // Variable id
 ID: [a-z]+;

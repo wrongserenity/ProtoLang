@@ -1,0 +1,10 @@
+d = 3;
+func foo(a, b)
+    a = a + 1;
+    b = a * b - 1;
+    print a;
+    print b;
+    endfunc
+
+foo(2, 3);
+savelines "test_foo";

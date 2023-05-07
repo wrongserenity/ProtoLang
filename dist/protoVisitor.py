@@ -14,6 +14,11 @@ class protoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by protoParser#command.
+    def visitCommand(self, ctx:protoParser.CommandContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by protoParser#valDecl.
     def visitValDecl(self, ctx:protoParser.ValDeclContext):
         return self.visitChildren(ctx)

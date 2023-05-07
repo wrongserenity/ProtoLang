@@ -1,8 +1,11 @@
 grammar proto;
 program       :
-              declaration*
-              statement*
+              command*
               ;
+
+command : declaration
+        | statement
+        ;
 
 // Parse rule for variable declarations
 

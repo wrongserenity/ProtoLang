@@ -17,6 +17,15 @@ class protoListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by protoParser#command.
+    def enterCommand(self, ctx:protoParser.CommandContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#command.
+    def exitCommand(self, ctx:protoParser.CommandContext):
+        pass
+
+
     # Enter a parse tree produced by protoParser#valDecl.
     def enterValDecl(self, ctx:protoParser.ValDeclContext):
         pass

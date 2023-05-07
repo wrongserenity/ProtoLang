@@ -125,6 +125,13 @@ class MyVisitor(protoVisitor):
         self.all_lines = [] if not all_lines else all_lines
         self.user_interface = user_interface
 
+    def visitProgram(self, ctx:protoParser.ProgramContext):
+        commands = ctx.command()
+        last_return = None
+        for com in commands:
+            last_return = self.visit(com)
+        return last_return
+
     def visitValDecl(self, ctx:protoParser.ValDeclContext):
         id_name = ctx.ID().getText()
         if id_name in self.memory:
@@ -132,7 +139,6 @@ class MyVisitor(protoVisitor):
         self.memory[id_name] = Value(0)
 
     def visitFuncDecl(self, ctx:protoParser.FuncDeclContext):
-        print("hui")
         id_name = ctx.ID().getText()
         if id_name in self.memory:
             logError("id '" + id_name + "' already in memory")
@@ -313,14 +319,14 @@ class MyVisitor(protoVisitor):
         lines_temp = self.all_lines.copy()
         for i in range(len(lines_temp)):
             if "func" in lines_temp[i]:
-                lines_temp[i] = lines_temp[i].replace(")", ")\n   ")
-                lines_temp[i] = lines_temp[i].replace("endfunc", "endfunc\n")
-                lines_temp[i] = lines_temp[i].replace(";", ";\n   ")
+                lines_temp[i] = lines_temp[i].replace(")", ")\n\t")
+                lines_temp[i] = lines_temp[i].replace("endfunc", "endfunc \n ")
+                lines_temp[i] = lines_temp[i].replace(";", ";\n\t")
         return '\n'.join(lines_temp)
 
     def visitReadfilestmt(self, ctx:protoParser.ReadfilestmtContext):
-        file_path_ = str(self.visit(ctx.term()))
-        self.user_interface.add_file_to_read_in_queue(file_path_)
+        file_name_ = str(self.visit(ctx.term()))
+        self.user_interface.add_file_to_read_in_queue(file_name_)
 
     def get_memory(self):
         return self.memory
@@ -335,10 +341,10 @@ class UserInterface:
     def activate(self):
         while True:
             if len(self.readfile_queue) > 0:
-                self.process_input(self.readfile_queue.pop(0), True)
+                input_string = self.prepare_input_from_file(self.readfile_queue.pop(0))
             else:
                 input_string = input(">>> ")
-                self.process_input(input_string)
+            self.process_input(input_string)
 
     def process_input(self, input_str_, is_file=False):
         if is_file:
@@ -352,12 +358,12 @@ class UserInterface:
 
     def add_file_to_read_in_queue(self, file_path_):
         self.readfile_queue.append(file_path_)
-        
-    def prerape_input_from_file(self, file_path_):
-        with open(file_path_, "r") as f:
+
+    def prepare_input_from_file(self, file_name_):
+        with open(file_name_ + ".proto", "r") as f:
             input_str_ = f.read()
 
-        input_str_ = input_str_.replace("\n", "")
+        input_str_ = input_str_.replace("\n", " ")
         return input_str_
 
     def process_visitor(self, data_):
@@ -370,7 +376,7 @@ class UserInterface:
 
         # evaluator
         visitor_ = MyVisitor(self, self.mem, self.lines)
-        output_ = visitor_.visit(tree_)
+        output_ = visitor_.visitProgram(tree_)
 
         self.mem = visitor_.get_memory()
         return output_

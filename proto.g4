@@ -102,7 +102,7 @@ term    : LPAREN expr RPAREN    #parenAtom
 
 funccall : ID parampass;
 
-parampass :     LPAREN expr (COMMA expr)* RPAREN;
+parampass :     LPAREN expr? (COMMA expr)* RPAREN;
 
 // Reserved Keywords
 ////////////////////////////////

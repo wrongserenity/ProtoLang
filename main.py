@@ -200,14 +200,16 @@ class MyVisitor(protoVisitor):
         if not func.getCtxRet() is None:
             result = self.visit(func.getCtxRet())
 
-        self.memory = init_mem
+        self.memory = {x:self.memory[x] for x in self.memory if x in init_mem}
         if not result is None:
             return result
 
     def visitParampass(self, ctx:protoParser.ParampassContext):
         results = []
         for expr in ctx.expr():
-            results.append(self.visit(expr))
+            candidate = self.visit(expr)
+            if not candidate is None:
+                results.append(candidate)
         return results
 
     def visitFuncbody(self, ctx:protoParser.FuncbodyContext):

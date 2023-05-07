@@ -24,6 +24,7 @@ statement   : ifstmt
             | assignstmt
             | term
             | savelinesstmt
+            | readfilestmt
             ;
 
 // statement rules
@@ -53,6 +54,10 @@ assignstmt      :
 
 savelinesstmt   :
                 SAVELINES term SEMICOLON
+                ;
+
+readfilestmt    :
+                READFILE term SEMICOLON
                 ;
 
 condblock   : LPAREN expr RPAREN
@@ -103,6 +108,7 @@ RETURN: 'return';
 ENDFUNC: 'endfunc';
 
 SAVELINES : 'savelines';
+READFILE : 'readfile';
 
 // Operators
 OR : '||';

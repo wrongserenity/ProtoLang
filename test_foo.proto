@@ -6,5 +6,4 @@ func foo(a, b)
     print b;
     endfunc
 
-foo(2, 3);
-savelines "test_foo";
+print foo(2, 3);

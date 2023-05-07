@@ -69,6 +69,11 @@ class protoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by protoParser#readfilestmt.
+    def visitReadfilestmt(self, ctx:protoParser.ReadfilestmtContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by protoParser#condblock.
     def visitCondblock(self, ctx:protoParser.CondblockContext):
         return self.visitChildren(ctx)

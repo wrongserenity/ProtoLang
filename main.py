@@ -119,10 +119,11 @@ class Function:
 
 
 class MyVisitor(protoVisitor):
-    def __init__(self, memory, all_lines=None):
+    def __init__(self, user_interface, memory=None, all_lines=None):
         super().__init__()
         self.memory = {} if not memory else memory
         self.all_lines = [] if not all_lines else all_lines
+        self.user_interface = user_interface
 
     def visitValDecl(self, ctx:protoParser.ValDeclContext):
         id_name = ctx.ID().getText()
@@ -131,6 +132,7 @@ class MyVisitor(protoVisitor):
         self.memory[id_name] = Value(0)
 
     def visitFuncDecl(self, ctx:protoParser.FuncDeclContext):
+        print("hui")
         id_name = ctx.ID().getText()
         if id_name in self.memory:
             logError("id '" + id_name + "' already in memory")
@@ -188,7 +190,6 @@ class MyVisitor(protoVisitor):
         for expr in ctx.expr():
             results.append(self.visit(expr))
         return results
-
 
     def visitFuncbody(self, ctx:protoParser.FuncbodyContext):
         stats = ctx.statement()
@@ -261,7 +262,7 @@ class MyVisitor(protoVisitor):
         left = self.visit(ctx.expr(0))
         right = self.visit(ctx.expr(1))
 
-        type_val = ctx.op.getType()
+        type_val = ctx.op.type
         if type_val == protoParser.EQ:
             return left == right
         elif type_val == protoParser.NEQ:
@@ -305,7 +306,6 @@ class MyVisitor(protoVisitor):
     def visitSavelinesstmt(self, ctx:protoParser.SavelinesstmtContext):
         result_str = self.filterSavelines()
 
-
         with open(str(self.visit(ctx.term())) + '.proto', 'w') as file:
             file.write(result_str)
 
@@ -318,34 +318,64 @@ class MyVisitor(protoVisitor):
                 lines_temp[i] = lines_temp[i].replace(";", ";\n   ")
         return '\n'.join(lines_temp)
 
+    def visitReadfilestmt(self, ctx:protoParser.ReadfilestmtContext):
+        file_path_ = str(self.visit(ctx.term()))
+        self.user_interface.add_file_to_read_in_queue(file_path_)
 
-
-
-    def getMemory(self):
+    def get_memory(self):
         return self.memory
 
 
-def getVisitorResultAndMem(data_, oldmem, lines):
-    # lexer
-    lexer_ = protoLexer(data_)
-    stream_ = CommonTokenStream(lexer_)
-    # parser
-    parser_ = protoParser(stream_)
-    tree_ = parser_.program()
-    # evaluator
-    visitor_ = MyVisitor(oldmem, lines)
-    output_ = visitor_.visit(tree_)
-    mem_ = visitor_.getMemory()
-    return output_, mem_
+class UserInterface:
+    def __init__(self):
+        self.mem = {}
+        self.lines = []
+        self.readfile_queue = []
+
+    def activate(self):
+        while True:
+            if len(self.readfile_queue) > 0:
+                self.process_input(self.readfile_queue.pop(0), True)
+            else:
+                input_string = input(">>> ")
+                self.process_input(input_string)
+
+    def process_input(self, input_str_, is_file=False):
+        if is_file:
+            stream_ = FileStream(input_str_)
+        else:
+            stream_ = InputStream(input_str_)
+            self.lines.append(input_str_)
+        output_ = self.process_visitor(stream_)
+        if output_:
+            print(output_)
+
+    def add_file_to_read_in_queue(self, file_path_):
+        self.readfile_queue.append(file_path_)
+        
+    def prerape_input_from_file(self, file_path_):
+        with open(file_path_, "r") as f:
+            input_str_ = f.read()
+
+        input_str_ = input_str_.replace("\n", "")
+        return input_str_
+
+    def process_visitor(self, data_):
+        # lexer
+        lexer_ = protoLexer(data_)
+        stream_ = CommonTokenStream(lexer_)
+        # parser
+        parser_ = protoParser(stream_)
+        tree_ = parser_.program()
+
+        # evaluator
+        visitor_ = MyVisitor(self, self.mem, self.lines)
+        output_ = visitor_.visit(tree_)
+
+        self.mem = visitor_.get_memory()
+        return output_
 
 
 if __name__ == "__main__":
-    mem = {}
-    lines = []
-    while 1:
-        input_str = input(">>> ")
-        data = InputStream(input_str)
-        lines.append(input_str)
-        output, mem = getVisitorResultAndMem(data, mem, lines)
-        if output:
-            print(output)
+    interface = UserInterface()
+    interface.activate()

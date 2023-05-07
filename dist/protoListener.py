@@ -116,6 +116,15 @@ class protoListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by protoParser#readfilestmt.
+    def enterReadfilestmt(self, ctx:protoParser.ReadfilestmtContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#readfilestmt.
+    def exitReadfilestmt(self, ctx:protoParser.ReadfilestmtContext):
+        pass
+
+
     # Enter a parse tree produced by protoParser#condblock.
     def enterCondblock(self, ctx:protoParser.CondblockContext):
         pass

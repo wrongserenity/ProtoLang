@@ -19,13 +19,18 @@ class protoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by protoParser#valDecl.
-    def visitValDecl(self, ctx:protoParser.ValDeclContext):
+    # Visit a parse tree produced by protoParser#varDecl.
+    def visitVarDecl(self, ctx:protoParser.VarDeclContext):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by protoParser#funcDecl.
     def visitFuncDecl(self, ctx:protoParser.FuncDeclContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by protoParser#idvarlist.
+    def visitIdvarlist(self, ctx:protoParser.IdvarlistContext):
         return self.visitChildren(ctx)
 
 
@@ -76,6 +81,11 @@ class protoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by protoParser#readfilestmt.
     def visitReadfilestmt(self, ctx:protoParser.ReadfilestmtContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by protoParser#meminfostmt.
+    def visitMeminfostmt(self, ctx:protoParser.MeminfostmtContext):
         return self.visitChildren(ctx)
 
 

@@ -4,6 +4,8 @@ from dist.protoLexer import protoLexer
 from dist.protoParser import protoParser
 from dist.protoVisitor import protoVisitor
 
+from copy import copy
+
 
 def logError(msg):
     if not isinstance(msg, str):
@@ -87,6 +89,9 @@ class Value:
     def __sub__(self, other):
         return Value(self.value - other.value)
 
+    def copy(self):
+        return Value(self.value)
+
 class Function:
     def __init__(self, param_names, ctxBody:protoParser.FuncbodyContext, ctxRet:protoParser.FuncreturnContext):
         self.param_names = param_names
@@ -117,6 +122,9 @@ class Function:
     def getCtxRet(self):
         return self.context_return
 
+    def __repr__(self):
+        return "Func(" + ', '.join(self.param_names) + ")"
+
 
 class MyVisitor(protoVisitor):
     def __init__(self, user_interface, memory=None, all_lines=None):
@@ -132,11 +140,15 @@ class MyVisitor(protoVisitor):
             last_return = self.visit(com)
         return last_return
 
-    def visitValDecl(self, ctx:protoParser.ValDeclContext):
-        id_name = ctx.ID().getText()
-        if id_name in self.memory:
-            logError("id '" + id_name + "' already in memory")
-        self.memory[id_name] = Value(0)
+    def visitVarDecl(self, ctx:protoParser.VarDeclContext):
+        for var_id in self.visit(ctx.idvarlist()):
+            id_name = var_id.getText()
+            if id_name in self.memory:
+                logError("id '" + id_name + "' already in memory")
+            self.memory[id_name] = Value(0)
+
+    def visitIdvarlist(self, ctx:protoParser.IdvarlistContext):
+        return ctx.ID()
 
     def visitFuncDecl(self, ctx:protoParser.FuncDeclContext):
         id_name = ctx.ID().getText()
@@ -155,9 +167,9 @@ class MyVisitor(protoVisitor):
         return self.visit(ctx.expr())
 
     def visitAssignstmt(self, ctx:protoParser.AssignstmtContext):
-        name = ctx.ID().getText()
         value = self.visit(ctx.expr())
-        self.memory[name] = value
+        for var_id in self.visit(ctx.idvarlist()):
+            self.memory[var_id.getText()] = value.copy()
 
     def visitIdAtom(self, ctx:protoParser.IdAtomContext):
         id_name = ctx.ID().getText()
@@ -322,11 +334,18 @@ class MyVisitor(protoVisitor):
                 lines_temp[i] = lines_temp[i].replace(")", ")\n\t")
                 lines_temp[i] = lines_temp[i].replace("endfunc", "endfunc \n ")
                 lines_temp[i] = lines_temp[i].replace(";", ";\n\t")
+        lines_temp.pop()
         return '\n'.join(lines_temp)
 
     def visitReadfilestmt(self, ctx:protoParser.ReadfilestmtContext):
         file_name_ = str(self.visit(ctx.term()))
         self.user_interface.add_file_to_read_in_queue(file_name_)
+
+    def visitMeminfostmt(self, ctx:protoParser.MeminfostmtContext):
+        for pair in self.memory.items():
+            print(str(pair[0]) + " = " + str(pair[1]))
+
+    # staff
 
     def get_memory(self):
         return self.memory

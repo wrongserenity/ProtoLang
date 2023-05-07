@@ -26,12 +26,12 @@ class protoListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by protoParser#valDecl.
-    def enterValDecl(self, ctx:protoParser.ValDeclContext):
+    # Enter a parse tree produced by protoParser#varDecl.
+    def enterVarDecl(self, ctx:protoParser.VarDeclContext):
         pass
 
-    # Exit a parse tree produced by protoParser#valDecl.
-    def exitValDecl(self, ctx:protoParser.ValDeclContext):
+    # Exit a parse tree produced by protoParser#varDecl.
+    def exitVarDecl(self, ctx:protoParser.VarDeclContext):
         pass
 
 
@@ -41,6 +41,15 @@ class protoListener(ParseTreeListener):
 
     # Exit a parse tree produced by protoParser#funcDecl.
     def exitFuncDecl(self, ctx:protoParser.FuncDeclContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#idvarlist.
+    def enterIdvarlist(self, ctx:protoParser.IdvarlistContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#idvarlist.
+    def exitIdvarlist(self, ctx:protoParser.IdvarlistContext):
         pass
 
 
@@ -131,6 +140,15 @@ class protoListener(ParseTreeListener):
 
     # Exit a parse tree produced by protoParser#readfilestmt.
     def exitReadfilestmt(self, ctx:protoParser.ReadfilestmtContext):
+        pass
+
+
+    # Enter a parse tree produced by protoParser#meminfostmt.
+    def enterMeminfostmt(self, ctx:protoParser.MeminfostmtContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#meminfostmt.
+    def exitMeminfostmt(self, ctx:protoParser.MeminfostmtContext):
         pass
 
 

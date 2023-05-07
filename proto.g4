@@ -9,9 +9,11 @@ command : declaration
 
 // Parse rule for variable declarations
 
-declaration     : VAL ID SEMICOLON                                              #valDecl
+declaration     : VAR idvarlist SEMICOLON                                              #varDecl
                 | FUNC ID paramdecl funcbody funcreturn? ENDFUNC     #funcDecl
                 ;
+
+idvarlist : ID (COMMA ID)*;
 
 paramdecl : LPAREN ID? (COMMA ID)* RPAREN;
 
@@ -28,6 +30,7 @@ statement   : ifstmt
             | term
             | savelinesstmt
             | readfilestmt
+            | meminfostmt
             ;
 
 // statement rules
@@ -52,7 +55,7 @@ printstmt      :
                ;
 
 assignstmt      :
-                ID ASSIGN expr SEMICOLON
+                idvarlist ASSIGN expr SEMICOLON
                 ;
 
 savelinesstmt   :
@@ -61,6 +64,10 @@ savelinesstmt   :
 
 readfilestmt    :
                 READFILE term SEMICOLON
+                ;
+
+meminfostmt     :
+                MEMINFO SEMICOLON
                 ;
 
 condblock   : LPAREN expr RPAREN
@@ -91,7 +98,7 @@ term    : LPAREN expr RPAREN    #parenAtom
         | STRING                #stringAtom
         ;
 
-funccall : ID parampass;
+funccall : ID parampass SEMICOLON;
 
 parampass :     LPAREN expr (COMMA expr)* RPAREN;
 
@@ -105,13 +112,14 @@ WHILE: 'while';
 ENDWHILE: 'endwhile';
 PRINT: 'print';
 
-VAL: 'val';
+VAR: 'var';
 FUNC: 'func';
 RETURN: 'return';
 ENDFUNC: 'endfunc';
 
 SAVELINES : 'savelines';
 READFILE : 'readfile';
+MEMINFO : 'meminfo';
 
 // Operators
 OR : '||';

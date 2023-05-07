@@ -89,6 +89,15 @@ class protoListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by protoParser#exprstmt.
+    def enterExprstmt(self, ctx:protoParser.ExprstmtContext):
+        pass
+
+    # Exit a parse tree produced by protoParser#exprstmt.
+    def exitExprstmt(self, ctx:protoParser.ExprstmtContext):
+        pass
+
+
     # Enter a parse tree produced by protoParser#ifstmt.
     def enterIfstmt(self, ctx:protoParser.IfstmtContext):
         pass

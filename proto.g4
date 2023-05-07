@@ -27,13 +27,15 @@ statement   : ifstmt
             | whilestmt
             | printstmt
             | assignstmt
-            | term
+            | exprstmt
             | savelinesstmt
             | readfilestmt
             | meminfostmt
             ;
 
 // statement rules
+
+exprstmt    : expr SEMICOLON;
 
 ifstmt      :
             IF condblock
@@ -98,7 +100,7 @@ term    : LPAREN expr RPAREN    #parenAtom
         | STRING                #stringAtom
         ;
 
-funccall : ID parampass SEMICOLON;
+funccall : ID parampass;
 
 parampass :     LPAREN expr (COMMA expr)* RPAREN;
 

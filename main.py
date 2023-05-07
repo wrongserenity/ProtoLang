@@ -4,9 +4,9 @@ from dist.protoParser import protoParser
 from dist.protoVisitor import protoVisitor
 
 
-def logError(msg):
+def log_error(msg):
     if not isinstance(msg, str):
-        logError("Can not log error: message is not string")
+        log_error("Can not log error: message is not string")
     print(msg)
 
 
@@ -50,7 +50,7 @@ class Value:
         if isinstance(self.value, int) or isinstance(self.value, float):
             return Value(-self.value)
         elif isinstance(self.value, bool):
-            logError("Not recomended using 'minus' with bool, use 'not'")
+            log_error("Not recomended using 'minus' with bool, use 'not'")
             return Value(not self.value)
 
     def __bool__(self):
@@ -69,13 +69,13 @@ class Value:
 
     def __truediv__(self, other):
         if other.value == 0:
-            logError("Zero division")
+            log_error("Zero division")
             return Value(0)
         return Value(self.value / other.value)
 
     def __mod__(self, other):
         if other.value == 0:
-            logError("Zero division")
+            log_error("Zero division")
             return Value(0)
         return Value(self.value % other.value)
 
@@ -98,7 +98,7 @@ class Function:
 
     def getAllMem(self, params, visitor_mem):
         if len(params) != len(self.param_names):
-            logError("Func: expected " + str(len(self.param_names)) +
+            log_error("Func: expected " + str(len(self.param_names)) +
                      " values, but received" + str(len(params)))
             return Value(0)
 
@@ -107,7 +107,7 @@ class Function:
 
         intersect = self.func_mem.keys() & visitor_mem.keys()
         if len(intersect) > 0:
-            logError("Func: var name collision: " + str(intersect))
+            log_error("Func: var name collision: " + str(intersect))
             return Value(0)
 
         all_mem = {**self.func_mem, **visitor_mem}
@@ -143,7 +143,7 @@ class MyVisitor(protoVisitor):
         for var_id in self.visit(ctx.idvarlist()):
             id_name = var_id.getText()
             if id_name in self.memory:
-                logError("id '" + id_name + "' already in memory")
+                log_error("id '" + id_name + "' already in memory")
             self.memory[id_name] = Value(0)
 
     def visitIdvarlist(self, ctx:protoParser.IdvarlistContext):
@@ -152,7 +152,7 @@ class MyVisitor(protoVisitor):
     def visitFuncDecl(self, ctx:protoParser.FuncDeclContext):
         id_name = ctx.ID().getText()
         if id_name in self.memory:
-            logError("id '" + id_name + "' already in memory")
+            log_error("id '" + id_name + "' already in memory")
         param_names = self.visit(ctx.paramdecl())
         self.memory[id_name] = Function(param_names, ctx.funcbody(), ctx.funcreturn())
 
@@ -175,7 +175,7 @@ class MyVisitor(protoVisitor):
     def visitIdAtom(self, ctx:protoParser.IdAtomContext):
         id_name = ctx.ID().getText()
         if not id_name in self.memory:
-            logError("Has no '" + id_name + "' in memory")
+            log_error("Has no '" + id_name + "' in memory")
             return Value(0)
         return self.memory[id_name]
 
@@ -185,7 +185,7 @@ class MyVisitor(protoVisitor):
     def visitFunccall(self, ctx:protoParser.FunccallContext):
         func_id = ctx.ID().getText()
         if not func_id in self.memory:
-            logError("Has no function '" + func_id + "' in memory")
+            log_error("Has no function '" + func_id + "' in memory")
             return Value(0)
 
         func = self.memory[func_id]
@@ -247,7 +247,7 @@ class MyVisitor(protoVisitor):
         elif type_val == protoParser.MOD:
             return left % right
         else:
-            logError("Unknown operator in multiplication")
+            log_error("Unknown operator in multiplication")
 
     def visitAdditiveExpr(self, ctx:protoParser.AdditiveExprContext):
         left = self.visit(ctx.expr(0))
@@ -259,7 +259,7 @@ class MyVisitor(protoVisitor):
         elif type_val == protoParser.MINUS:
             return left - right
         else:
-            logError("Unknown operator in additive")
+            log_error("Unknown operator in additive")
 
     def visitRelationalExpr(self, ctx:protoParser.RelationalExprContext):
         left = self.visit(ctx.expr(0))
@@ -275,7 +275,7 @@ class MyVisitor(protoVisitor):
         elif type_val == protoParser.GTEQ:
             return left >= right
         else:
-            logError("Unknown operator in relational")
+            log_error("Unknown operator in relational")
 
     def visitEqualityExpr(self, ctx:protoParser.EqualityExprContext):
         left = self.visit(ctx.expr(0))
@@ -287,7 +287,7 @@ class MyVisitor(protoVisitor):
         elif type_val == protoParser.NEQ:
             return left != right
         else:
-            logError("Unknown operator in equality")
+            log_error("Unknown operator in equality")
 
     def visitAndExpr(self, ctx:protoParser.AndExprContext):
         return self.visit(ctx.expr(0)) and self.visit(ctx.expr(1))
@@ -296,6 +296,9 @@ class MyVisitor(protoVisitor):
         return self.visit(ctx.expr(0)) or self.visit(ctx.expr(1))
 
     # statements
+
+    def visitExprstmt(self, ctx:protoParser.ExprstmtContext):
+        return self.visit(ctx.expr())
 
     def visitPrintstmt(self, ctx: protoParser.PrintstmtContext):
         print(self.visit(ctx.expr()))
@@ -309,7 +312,7 @@ class MyVisitor(protoVisitor):
                 evaluated_block = True
                 for st in block.statement():
                     self.visit(st)
-                break;
+                break
 
         if not evaluated_block and not ctx.statement() is None:
             for st in ctx.statement():

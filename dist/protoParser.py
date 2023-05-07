@@ -10,85 +10,87 @@ else:
 
 def serializedATN():
     return [
-        4,1,40,227,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,40,231,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
-        2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,1,0,
-        5,0,42,8,0,10,0,12,0,45,9,0,1,1,1,1,3,1,49,8,1,1,2,1,2,1,2,1,2,1,
-        2,1,2,1,2,1,2,1,2,3,2,60,8,2,1,2,1,2,3,2,64,8,2,1,3,1,3,1,3,5,3,
-        69,8,3,10,3,12,3,72,9,3,1,4,1,4,3,4,76,8,4,1,4,1,4,5,4,80,8,4,10,
-        4,12,4,83,9,4,1,4,1,4,1,5,5,5,88,8,5,10,5,12,5,91,9,5,1,6,1,6,1,
-        6,1,6,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,3,7,105,8,7,1,8,1,8,1,8,1,
-        8,1,8,5,8,112,8,8,10,8,12,8,115,9,8,1,8,1,8,5,8,119,8,8,10,8,12,
-        8,122,9,8,3,8,124,8,8,1,8,1,8,1,9,1,9,1,9,1,9,1,9,5,9,133,8,9,10,
-        9,12,9,136,9,9,1,9,1,9,1,10,1,10,1,10,1,10,1,11,1,11,1,11,1,11,1,
-        11,1,12,1,12,1,12,1,12,1,13,1,13,1,13,1,13,1,14,1,14,1,14,1,15,1,
-        15,1,15,1,15,5,15,164,8,15,10,15,12,15,167,9,15,1,16,1,16,1,16,1,
-        16,1,16,1,16,3,16,175,8,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,
-        16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,5,16,195,8,
-        16,10,16,12,16,198,9,16,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,17,
-        1,17,1,17,3,17,210,8,17,1,18,1,18,1,18,1,18,1,19,1,19,1,19,1,19,
-        5,19,220,8,19,10,19,12,19,223,9,19,1,19,1,19,1,19,0,1,32,20,0,2,
-        4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,0,5,1,0,24,26,
-        1,0,22,23,1,0,18,21,1,0,16,17,1,0,34,35,241,0,43,1,0,0,0,2,48,1,
-        0,0,0,4,63,1,0,0,0,6,65,1,0,0,0,8,73,1,0,0,0,10,89,1,0,0,0,12,92,
-        1,0,0,0,14,104,1,0,0,0,16,106,1,0,0,0,18,127,1,0,0,0,20,139,1,0,
-        0,0,22,143,1,0,0,0,24,148,1,0,0,0,26,152,1,0,0,0,28,156,1,0,0,0,
-        30,159,1,0,0,0,32,174,1,0,0,0,34,209,1,0,0,0,36,211,1,0,0,0,38,215,
-        1,0,0,0,40,42,3,2,1,0,41,40,1,0,0,0,42,45,1,0,0,0,43,41,1,0,0,0,
-        43,44,1,0,0,0,44,1,1,0,0,0,45,43,1,0,0,0,46,49,3,4,2,0,47,49,3,14,
-        7,0,48,46,1,0,0,0,48,47,1,0,0,0,49,3,1,0,0,0,50,51,5,7,0,0,51,52,
-        3,6,3,0,52,53,5,28,0,0,53,64,1,0,0,0,54,55,5,8,0,0,55,56,5,39,0,
-        0,56,57,3,8,4,0,57,59,3,10,5,0,58,60,3,12,6,0,59,58,1,0,0,0,59,60,
-        1,0,0,0,60,61,1,0,0,0,61,62,5,10,0,0,62,64,1,0,0,0,63,50,1,0,0,0,
-        63,54,1,0,0,0,64,5,1,0,0,0,65,70,5,39,0,0,66,67,5,29,0,0,67,69,5,
-        39,0,0,68,66,1,0,0,0,69,72,1,0,0,0,70,68,1,0,0,0,70,71,1,0,0,0,71,
-        7,1,0,0,0,72,70,1,0,0,0,73,75,5,30,0,0,74,76,5,39,0,0,75,74,1,0,
-        0,0,75,76,1,0,0,0,76,81,1,0,0,0,77,78,5,29,0,0,78,80,5,39,0,0,79,
-        77,1,0,0,0,80,83,1,0,0,0,81,79,1,0,0,0,81,82,1,0,0,0,82,84,1,0,0,
-        0,83,81,1,0,0,0,84,85,5,31,0,0,85,9,1,0,0,0,86,88,3,14,7,0,87,86,
-        1,0,0,0,88,91,1,0,0,0,89,87,1,0,0,0,89,90,1,0,0,0,90,11,1,0,0,0,
-        91,89,1,0,0,0,92,93,5,9,0,0,93,94,3,32,16,0,94,95,5,28,0,0,95,13,
-        1,0,0,0,96,105,3,16,8,0,97,105,3,18,9,0,98,105,3,20,10,0,99,105,
-        3,22,11,0,100,105,3,34,17,0,101,105,3,24,12,0,102,105,3,26,13,0,
-        103,105,3,28,14,0,104,96,1,0,0,0,104,97,1,0,0,0,104,98,1,0,0,0,104,
-        99,1,0,0,0,104,100,1,0,0,0,104,101,1,0,0,0,104,102,1,0,0,0,104,103,
-        1,0,0,0,105,15,1,0,0,0,106,107,5,1,0,0,107,113,3,30,15,0,108,109,
-        5,2,0,0,109,110,5,1,0,0,110,112,3,30,15,0,111,108,1,0,0,0,112,115,
-        1,0,0,0,113,111,1,0,0,0,113,114,1,0,0,0,114,123,1,0,0,0,115,113,
-        1,0,0,0,116,120,5,2,0,0,117,119,3,14,7,0,118,117,1,0,0,0,119,122,
-        1,0,0,0,120,118,1,0,0,0,120,121,1,0,0,0,121,124,1,0,0,0,122,120,
-        1,0,0,0,123,116,1,0,0,0,123,124,1,0,0,0,124,125,1,0,0,0,125,126,
-        5,3,0,0,126,17,1,0,0,0,127,128,5,4,0,0,128,129,5,30,0,0,129,130,
-        3,32,16,0,130,134,5,31,0,0,131,133,3,14,7,0,132,131,1,0,0,0,133,
-        136,1,0,0,0,134,132,1,0,0,0,134,135,1,0,0,0,135,137,1,0,0,0,136,
-        134,1,0,0,0,137,138,5,5,0,0,138,19,1,0,0,0,139,140,5,6,0,0,140,141,
-        3,32,16,0,141,142,5,28,0,0,142,21,1,0,0,0,143,144,3,6,3,0,144,145,
-        5,32,0,0,145,146,3,32,16,0,146,147,5,28,0,0,147,23,1,0,0,0,148,149,
-        5,11,0,0,149,150,3,34,17,0,150,151,5,28,0,0,151,25,1,0,0,0,152,153,
-        5,12,0,0,153,154,3,34,17,0,154,155,5,28,0,0,155,27,1,0,0,0,156,157,
-        5,13,0,0,157,158,5,28,0,0,158,29,1,0,0,0,159,160,5,30,0,0,160,161,
-        3,32,16,0,161,165,5,31,0,0,162,164,3,14,7,0,163,162,1,0,0,0,164,
-        167,1,0,0,0,165,163,1,0,0,0,165,166,1,0,0,0,166,31,1,0,0,0,167,165,
-        1,0,0,0,168,169,6,16,-1,0,169,170,5,23,0,0,170,175,3,32,16,9,171,
-        172,5,27,0,0,172,175,3,32,16,8,173,175,3,34,17,0,174,168,1,0,0,0,
-        174,171,1,0,0,0,174,173,1,0,0,0,175,196,1,0,0,0,176,177,10,7,0,0,
-        177,178,7,0,0,0,178,195,3,32,16,8,179,180,10,6,0,0,180,181,7,1,0,
-        0,181,195,3,32,16,7,182,183,10,5,0,0,183,184,7,2,0,0,184,195,3,32,
-        16,6,185,186,10,4,0,0,186,187,7,3,0,0,187,195,3,32,16,5,188,189,
-        10,3,0,0,189,190,5,15,0,0,190,195,3,32,16,4,191,192,10,2,0,0,192,
-        193,5,14,0,0,193,195,3,32,16,3,194,176,1,0,0,0,194,179,1,0,0,0,194,
-        182,1,0,0,0,194,185,1,0,0,0,194,188,1,0,0,0,194,191,1,0,0,0,195,
-        198,1,0,0,0,196,194,1,0,0,0,196,197,1,0,0,0,197,33,1,0,0,0,198,196,
-        1,0,0,0,199,200,5,30,0,0,200,201,3,32,16,0,201,202,5,31,0,0,202,
-        210,1,0,0,0,203,210,5,36,0,0,204,210,5,37,0,0,205,210,7,4,0,0,206,
-        210,5,39,0,0,207,210,3,36,18,0,208,210,5,38,0,0,209,199,1,0,0,0,
-        209,203,1,0,0,0,209,204,1,0,0,0,209,205,1,0,0,0,209,206,1,0,0,0,
-        209,207,1,0,0,0,209,208,1,0,0,0,210,35,1,0,0,0,211,212,5,39,0,0,
-        212,213,3,38,19,0,213,214,5,28,0,0,214,37,1,0,0,0,215,216,5,30,0,
-        0,216,221,3,32,16,0,217,218,5,29,0,0,218,220,3,32,16,0,219,217,1,
-        0,0,0,220,223,1,0,0,0,221,219,1,0,0,0,221,222,1,0,0,0,222,224,1,
-        0,0,0,223,221,1,0,0,0,224,225,5,31,0,0,225,39,1,0,0,0,19,43,48,59,
-        63,70,75,81,89,104,113,120,123,134,165,174,194,196,209,221
+        2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
+        7,20,1,0,5,0,44,8,0,10,0,12,0,47,9,0,1,1,1,1,3,1,51,8,1,1,2,1,2,
+        1,2,1,2,1,2,1,2,1,2,1,2,1,2,3,2,62,8,2,1,2,1,2,3,2,66,8,2,1,3,1,
+        3,1,3,5,3,71,8,3,10,3,12,3,74,9,3,1,4,1,4,3,4,78,8,4,1,4,1,4,5,4,
+        82,8,4,10,4,12,4,85,9,4,1,4,1,4,1,5,5,5,90,8,5,10,5,12,5,93,9,5,
+        1,6,1,6,1,6,1,6,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,3,7,107,8,7,1,8,
+        1,8,1,8,1,9,1,9,1,9,1,9,1,9,5,9,117,8,9,10,9,12,9,120,9,9,1,9,1,
+        9,5,9,124,8,9,10,9,12,9,127,9,9,3,9,129,8,9,1,9,1,9,1,10,1,10,1,
+        10,1,10,1,10,5,10,138,8,10,10,10,12,10,141,9,10,1,10,1,10,1,11,1,
+        11,1,11,1,11,1,12,1,12,1,12,1,12,1,12,1,13,1,13,1,13,1,13,1,14,1,
+        14,1,14,1,14,1,15,1,15,1,15,1,16,1,16,1,16,1,16,5,16,169,8,16,10,
+        16,12,16,172,9,16,1,17,1,17,1,17,1,17,1,17,1,17,3,17,180,8,17,1,
+        17,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,
+        17,1,17,1,17,1,17,1,17,5,17,200,8,17,10,17,12,17,203,9,17,1,18,1,
+        18,1,18,1,18,1,18,1,18,1,18,1,18,1,18,1,18,3,18,215,8,18,1,19,1,
+        19,1,19,1,20,1,20,1,20,1,20,5,20,224,8,20,10,20,12,20,227,9,20,1,
+        20,1,20,1,20,0,1,34,21,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,
+        32,34,36,38,40,0,5,1,0,24,26,1,0,22,23,1,0,18,21,1,0,16,17,1,0,34,
+        35,244,0,45,1,0,0,0,2,50,1,0,0,0,4,65,1,0,0,0,6,67,1,0,0,0,8,75,
+        1,0,0,0,10,91,1,0,0,0,12,94,1,0,0,0,14,106,1,0,0,0,16,108,1,0,0,
+        0,18,111,1,0,0,0,20,132,1,0,0,0,22,144,1,0,0,0,24,148,1,0,0,0,26,
+        153,1,0,0,0,28,157,1,0,0,0,30,161,1,0,0,0,32,164,1,0,0,0,34,179,
+        1,0,0,0,36,214,1,0,0,0,38,216,1,0,0,0,40,219,1,0,0,0,42,44,3,2,1,
+        0,43,42,1,0,0,0,44,47,1,0,0,0,45,43,1,0,0,0,45,46,1,0,0,0,46,1,1,
+        0,0,0,47,45,1,0,0,0,48,51,3,4,2,0,49,51,3,14,7,0,50,48,1,0,0,0,50,
+        49,1,0,0,0,51,3,1,0,0,0,52,53,5,7,0,0,53,54,3,6,3,0,54,55,5,28,0,
+        0,55,66,1,0,0,0,56,57,5,8,0,0,57,58,5,39,0,0,58,59,3,8,4,0,59,61,
+        3,10,5,0,60,62,3,12,6,0,61,60,1,0,0,0,61,62,1,0,0,0,62,63,1,0,0,
+        0,63,64,5,10,0,0,64,66,1,0,0,0,65,52,1,0,0,0,65,56,1,0,0,0,66,5,
+        1,0,0,0,67,72,5,39,0,0,68,69,5,29,0,0,69,71,5,39,0,0,70,68,1,0,0,
+        0,71,74,1,0,0,0,72,70,1,0,0,0,72,73,1,0,0,0,73,7,1,0,0,0,74,72,1,
+        0,0,0,75,77,5,30,0,0,76,78,5,39,0,0,77,76,1,0,0,0,77,78,1,0,0,0,
+        78,83,1,0,0,0,79,80,5,29,0,0,80,82,5,39,0,0,81,79,1,0,0,0,82,85,
+        1,0,0,0,83,81,1,0,0,0,83,84,1,0,0,0,84,86,1,0,0,0,85,83,1,0,0,0,
+        86,87,5,31,0,0,87,9,1,0,0,0,88,90,3,14,7,0,89,88,1,0,0,0,90,93,1,
+        0,0,0,91,89,1,0,0,0,91,92,1,0,0,0,92,11,1,0,0,0,93,91,1,0,0,0,94,
+        95,5,9,0,0,95,96,3,34,17,0,96,97,5,28,0,0,97,13,1,0,0,0,98,107,3,
+        18,9,0,99,107,3,20,10,0,100,107,3,22,11,0,101,107,3,24,12,0,102,
+        107,3,16,8,0,103,107,3,26,13,0,104,107,3,28,14,0,105,107,3,30,15,
+        0,106,98,1,0,0,0,106,99,1,0,0,0,106,100,1,0,0,0,106,101,1,0,0,0,
+        106,102,1,0,0,0,106,103,1,0,0,0,106,104,1,0,0,0,106,105,1,0,0,0,
+        107,15,1,0,0,0,108,109,3,34,17,0,109,110,5,28,0,0,110,17,1,0,0,0,
+        111,112,5,1,0,0,112,118,3,32,16,0,113,114,5,2,0,0,114,115,5,1,0,
+        0,115,117,3,32,16,0,116,113,1,0,0,0,117,120,1,0,0,0,118,116,1,0,
+        0,0,118,119,1,0,0,0,119,128,1,0,0,0,120,118,1,0,0,0,121,125,5,2,
+        0,0,122,124,3,14,7,0,123,122,1,0,0,0,124,127,1,0,0,0,125,123,1,0,
+        0,0,125,126,1,0,0,0,126,129,1,0,0,0,127,125,1,0,0,0,128,121,1,0,
+        0,0,128,129,1,0,0,0,129,130,1,0,0,0,130,131,5,3,0,0,131,19,1,0,0,
+        0,132,133,5,4,0,0,133,134,5,30,0,0,134,135,3,34,17,0,135,139,5,31,
+        0,0,136,138,3,14,7,0,137,136,1,0,0,0,138,141,1,0,0,0,139,137,1,0,
+        0,0,139,140,1,0,0,0,140,142,1,0,0,0,141,139,1,0,0,0,142,143,5,5,
+        0,0,143,21,1,0,0,0,144,145,5,6,0,0,145,146,3,34,17,0,146,147,5,28,
+        0,0,147,23,1,0,0,0,148,149,3,6,3,0,149,150,5,32,0,0,150,151,3,34,
+        17,0,151,152,5,28,0,0,152,25,1,0,0,0,153,154,5,11,0,0,154,155,3,
+        36,18,0,155,156,5,28,0,0,156,27,1,0,0,0,157,158,5,12,0,0,158,159,
+        3,36,18,0,159,160,5,28,0,0,160,29,1,0,0,0,161,162,5,13,0,0,162,163,
+        5,28,0,0,163,31,1,0,0,0,164,165,5,30,0,0,165,166,3,34,17,0,166,170,
+        5,31,0,0,167,169,3,14,7,0,168,167,1,0,0,0,169,172,1,0,0,0,170,168,
+        1,0,0,0,170,171,1,0,0,0,171,33,1,0,0,0,172,170,1,0,0,0,173,174,6,
+        17,-1,0,174,175,5,23,0,0,175,180,3,34,17,9,176,177,5,27,0,0,177,
+        180,3,34,17,8,178,180,3,36,18,0,179,173,1,0,0,0,179,176,1,0,0,0,
+        179,178,1,0,0,0,180,201,1,0,0,0,181,182,10,7,0,0,182,183,7,0,0,0,
+        183,200,3,34,17,8,184,185,10,6,0,0,185,186,7,1,0,0,186,200,3,34,
+        17,7,187,188,10,5,0,0,188,189,7,2,0,0,189,200,3,34,17,6,190,191,
+        10,4,0,0,191,192,7,3,0,0,192,200,3,34,17,5,193,194,10,3,0,0,194,
+        195,5,15,0,0,195,200,3,34,17,4,196,197,10,2,0,0,197,198,5,14,0,0,
+        198,200,3,34,17,3,199,181,1,0,0,0,199,184,1,0,0,0,199,187,1,0,0,
+        0,199,190,1,0,0,0,199,193,1,0,0,0,199,196,1,0,0,0,200,203,1,0,0,
+        0,201,199,1,0,0,0,201,202,1,0,0,0,202,35,1,0,0,0,203,201,1,0,0,0,
+        204,205,5,30,0,0,205,206,3,34,17,0,206,207,5,31,0,0,207,215,1,0,
+        0,0,208,215,5,36,0,0,209,215,5,37,0,0,210,215,7,4,0,0,211,215,5,
+        39,0,0,212,215,3,38,19,0,213,215,5,38,0,0,214,204,1,0,0,0,214,208,
+        1,0,0,0,214,209,1,0,0,0,214,210,1,0,0,0,214,211,1,0,0,0,214,212,
+        1,0,0,0,214,213,1,0,0,0,215,37,1,0,0,0,216,217,5,39,0,0,217,218,
+        3,40,20,0,218,39,1,0,0,0,219,220,5,30,0,0,220,225,3,34,17,0,221,
+        222,5,29,0,0,222,224,3,34,17,0,223,221,1,0,0,0,224,227,1,0,0,0,225,
+        223,1,0,0,0,225,226,1,0,0,0,226,228,1,0,0,0,227,225,1,0,0,0,228,
+        229,5,31,0,0,229,41,1,0,0,0,19,45,50,61,65,72,77,83,91,106,118,125,
+        128,139,170,179,199,201,214,225
     ]
 
 class protoParser ( Parser ):
@@ -124,24 +126,25 @@ class protoParser ( Parser ):
     RULE_funcbody = 5
     RULE_funcreturn = 6
     RULE_statement = 7
-    RULE_ifstmt = 8
-    RULE_whilestmt = 9
-    RULE_printstmt = 10
-    RULE_assignstmt = 11
-    RULE_savelinesstmt = 12
-    RULE_readfilestmt = 13
-    RULE_meminfostmt = 14
-    RULE_condblock = 15
-    RULE_expr = 16
-    RULE_term = 17
-    RULE_funccall = 18
-    RULE_parampass = 19
+    RULE_exprstmt = 8
+    RULE_ifstmt = 9
+    RULE_whilestmt = 10
+    RULE_printstmt = 11
+    RULE_assignstmt = 12
+    RULE_savelinesstmt = 13
+    RULE_readfilestmt = 14
+    RULE_meminfostmt = 15
+    RULE_condblock = 16
+    RULE_expr = 17
+    RULE_term = 18
+    RULE_funccall = 19
+    RULE_parampass = 20
 
     ruleNames =  [ "program", "command", "declaration", "idvarlist", "paramdecl", 
-                   "funcbody", "funcreturn", "statement", "ifstmt", "whilestmt", 
-                   "printstmt", "assignstmt", "savelinesstmt", "readfilestmt", 
-                   "meminfostmt", "condblock", "expr", "term", "funccall", 
-                   "parampass" ]
+                   "funcbody", "funcreturn", "statement", "exprstmt", "ifstmt", 
+                   "whilestmt", "printstmt", "assignstmt", "savelinesstmt", 
+                   "readfilestmt", "meminfostmt", "condblock", "expr", "term", 
+                   "funccall", "parampass" ]
 
     EOF = Token.EOF
     IF=1
@@ -235,13 +238,13 @@ class protoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 43
+            self.state = 45
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1083405515218) != 0):
-                self.state = 40
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1083548121554) != 0):
+                self.state = 42
                 self.command()
-                self.state = 45
+                self.state = 47
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -294,17 +297,17 @@ class protoParser ( Parser ):
         localctx = protoParser.CommandContext(self, self._ctx, self.state)
         self.enterRule(localctx, 2, self.RULE_command)
         try:
-            self.state = 48
+            self.state = 50
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [7, 8]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 46
+                self.state = 48
                 self.declaration()
                 pass
-            elif token in [1, 4, 6, 11, 12, 13, 30, 34, 35, 36, 37, 38, 39]:
+            elif token in [1, 4, 6, 11, 12, 13, 23, 27, 30, 34, 35, 36, 37, 38, 39]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 47
+                self.state = 49
                 self.statement()
                 pass
             else:
@@ -409,39 +412,39 @@ class protoParser ( Parser ):
         self.enterRule(localctx, 4, self.RULE_declaration)
         self._la = 0 # Token type
         try:
-            self.state = 63
+            self.state = 65
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [7]:
                 localctx = protoParser.VarDeclContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 50
-                self.match(protoParser.VAR)
-                self.state = 51
-                self.idvarlist()
                 self.state = 52
+                self.match(protoParser.VAR)
+                self.state = 53
+                self.idvarlist()
+                self.state = 54
                 self.match(protoParser.SEMICOLON)
                 pass
             elif token in [8]:
                 localctx = protoParser.FuncDeclContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 54
-                self.match(protoParser.FUNC)
-                self.state = 55
-                self.match(protoParser.ID)
                 self.state = 56
-                self.paramdecl()
+                self.match(protoParser.FUNC)
                 self.state = 57
-                self.funcbody()
+                self.match(protoParser.ID)
+                self.state = 58
+                self.paramdecl()
                 self.state = 59
+                self.funcbody()
+                self.state = 61
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if _la==9:
-                    self.state = 58
+                    self.state = 60
                     self.funcreturn()
 
 
-                self.state = 61
+                self.state = 63
                 self.match(protoParser.ENDFUNC)
                 pass
             else:
@@ -502,17 +505,17 @@ class protoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 65
+            self.state = 67
             self.match(protoParser.ID)
-            self.state = 70
+            self.state = 72
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==29:
-                self.state = 66
+                self.state = 68
                 self.match(protoParser.COMMA)
-                self.state = 67
+                self.state = 69
                 self.match(protoParser.ID)
-                self.state = 72
+                self.state = 74
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -577,29 +580,29 @@ class protoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 73
-            self.match(protoParser.LPAREN)
             self.state = 75
+            self.match(protoParser.LPAREN)
+            self.state = 77
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==39:
-                self.state = 74
+                self.state = 76
                 self.match(protoParser.ID)
 
 
-            self.state = 81
+            self.state = 83
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==29:
-                self.state = 77
+                self.state = 79
                 self.match(protoParser.COMMA)
-                self.state = 78
+                self.state = 80
                 self.match(protoParser.ID)
-                self.state = 83
+                self.state = 85
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 84
+            self.state = 86
             self.match(protoParser.RPAREN)
         except RecognitionException as re:
             localctx.exception = re
@@ -651,13 +654,13 @@ class protoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 89
+            self.state = 91
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1083405514834) != 0):
-                self.state = 86
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1083548121170) != 0):
+                self.state = 88
                 self.statement()
-                self.state = 91
+                self.state = 93
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -713,11 +716,11 @@ class protoParser ( Parser ):
         self.enterRule(localctx, 12, self.RULE_funcreturn)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 92
-            self.match(protoParser.RETURN)
-            self.state = 93
-            self.expr(0)
             self.state = 94
+            self.match(protoParser.RETURN)
+            self.state = 95
+            self.expr(0)
+            self.state = 96
             self.match(protoParser.SEMICOLON)
         except RecognitionException as re:
             localctx.exception = re
@@ -751,8 +754,8 @@ class protoParser ( Parser ):
             return self.getTypedRuleContext(protoParser.AssignstmtContext,0)
 
 
-        def term(self):
-            return self.getTypedRuleContext(protoParser.TermContext,0)
+        def exprstmt(self):
+            return self.getTypedRuleContext(protoParser.ExprstmtContext,0)
 
 
         def savelinesstmt(self):
@@ -792,58 +795,111 @@ class protoParser ( Parser ):
         localctx = protoParser.StatementContext(self, self._ctx, self.state)
         self.enterRule(localctx, 14, self.RULE_statement)
         try:
-            self.state = 104
+            self.state = 106
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,8,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 96
+                self.state = 98
                 self.ifstmt()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 97
+                self.state = 99
                 self.whilestmt()
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 98
+                self.state = 100
                 self.printstmt()
                 pass
 
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 99
+                self.state = 101
                 self.assignstmt()
                 pass
 
             elif la_ == 5:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 100
-                self.term()
+                self.state = 102
+                self.exprstmt()
                 pass
 
             elif la_ == 6:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 101
+                self.state = 103
                 self.savelinesstmt()
                 pass
 
             elif la_ == 7:
                 self.enterOuterAlt(localctx, 7)
-                self.state = 102
+                self.state = 104
                 self.readfilestmt()
                 pass
 
             elif la_ == 8:
                 self.enterOuterAlt(localctx, 8)
-                self.state = 103
+                self.state = 105
                 self.meminfostmt()
                 pass
 
 
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ExprstmtContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def expr(self):
+            return self.getTypedRuleContext(protoParser.ExprContext,0)
+
+
+        def SEMICOLON(self):
+            return self.getToken(protoParser.SEMICOLON, 0)
+
+        def getRuleIndex(self):
+            return protoParser.RULE_exprstmt
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterExprstmt" ):
+                listener.enterExprstmt(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitExprstmt" ):
+                listener.exitExprstmt(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExprstmt" ):
+                return visitor.visitExprstmt(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def exprstmt(self):
+
+        localctx = protoParser.ExprstmtContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 16, self.RULE_exprstmt)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 108
+            self.expr(0)
+            self.state = 109
+            self.match(protoParser.SEMICOLON)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -912,48 +968,48 @@ class protoParser ( Parser ):
     def ifstmt(self):
 
         localctx = protoParser.IfstmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 16, self.RULE_ifstmt)
+        self.enterRule(localctx, 18, self.RULE_ifstmt)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 106
+            self.state = 111
             self.match(protoParser.IF)
-            self.state = 107
+            self.state = 112
             self.condblock()
-            self.state = 113
+            self.state = 118
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,9,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
-                    self.state = 108
+                    self.state = 113
                     self.match(protoParser.ELSE)
-                    self.state = 109
+                    self.state = 114
                     self.match(protoParser.IF)
-                    self.state = 110
+                    self.state = 115
                     self.condblock() 
-                self.state = 115
+                self.state = 120
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,9,self._ctx)
 
-            self.state = 123
+            self.state = 128
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==2:
-                self.state = 116
+                self.state = 121
                 self.match(protoParser.ELSE)
-                self.state = 120
+                self.state = 125
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1083405514834) != 0):
-                    self.state = 117
-                    self.statement()
+                while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1083548121170) != 0):
                     self.state = 122
+                    self.statement()
+                    self.state = 127
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
 
 
-            self.state = 125
+            self.state = 130
             self.match(protoParser.ENDIF)
         except RecognitionException as re:
             localctx.exception = re
@@ -1017,29 +1073,29 @@ class protoParser ( Parser ):
     def whilestmt(self):
 
         localctx = protoParser.WhilestmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 18, self.RULE_whilestmt)
+        self.enterRule(localctx, 20, self.RULE_whilestmt)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 127
+            self.state = 132
             self.match(protoParser.WHILE)
-            self.state = 128
+            self.state = 133
             self.match(protoParser.LPAREN)
-            self.state = 129
-            self.expr(0)
-            self.state = 130
-            self.match(protoParser.RPAREN)
             self.state = 134
+            self.expr(0)
+            self.state = 135
+            self.match(protoParser.RPAREN)
+            self.state = 139
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1083405514834) != 0):
-                self.state = 131
-                self.statement()
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1083548121170) != 0):
                 self.state = 136
+                self.statement()
+                self.state = 141
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 137
+            self.state = 142
             self.match(protoParser.ENDWHILE)
         except RecognitionException as re:
             localctx.exception = re
@@ -1090,14 +1146,14 @@ class protoParser ( Parser ):
     def printstmt(self):
 
         localctx = protoParser.PrintstmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 20, self.RULE_printstmt)
+        self.enterRule(localctx, 22, self.RULE_printstmt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 139
+            self.state = 144
             self.match(protoParser.PRINT)
-            self.state = 140
+            self.state = 145
             self.expr(0)
-            self.state = 141
+            self.state = 146
             self.match(protoParser.SEMICOLON)
         except RecognitionException as re:
             localctx.exception = re
@@ -1152,16 +1208,16 @@ class protoParser ( Parser ):
     def assignstmt(self):
 
         localctx = protoParser.AssignstmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 22, self.RULE_assignstmt)
+        self.enterRule(localctx, 24, self.RULE_assignstmt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 143
+            self.state = 148
             self.idvarlist()
-            self.state = 144
+            self.state = 149
             self.match(protoParser.ASSIGN)
-            self.state = 145
+            self.state = 150
             self.expr(0)
-            self.state = 146
+            self.state = 151
             self.match(protoParser.SEMICOLON)
         except RecognitionException as re:
             localctx.exception = re
@@ -1212,14 +1268,14 @@ class protoParser ( Parser ):
     def savelinesstmt(self):
 
         localctx = protoParser.SavelinesstmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_savelinesstmt)
+        self.enterRule(localctx, 26, self.RULE_savelinesstmt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 148
+            self.state = 153
             self.match(protoParser.SAVELINES)
-            self.state = 149
+            self.state = 154
             self.term()
-            self.state = 150
+            self.state = 155
             self.match(protoParser.SEMICOLON)
         except RecognitionException as re:
             localctx.exception = re
@@ -1270,14 +1326,14 @@ class protoParser ( Parser ):
     def readfilestmt(self):
 
         localctx = protoParser.ReadfilestmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 26, self.RULE_readfilestmt)
+        self.enterRule(localctx, 28, self.RULE_readfilestmt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 152
+            self.state = 157
             self.match(protoParser.READFILE)
-            self.state = 153
+            self.state = 158
             self.term()
-            self.state = 154
+            self.state = 159
             self.match(protoParser.SEMICOLON)
         except RecognitionException as re:
             localctx.exception = re
@@ -1324,12 +1380,12 @@ class protoParser ( Parser ):
     def meminfostmt(self):
 
         localctx = protoParser.MeminfostmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 28, self.RULE_meminfostmt)
+        self.enterRule(localctx, 30, self.RULE_meminfostmt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 156
+            self.state = 161
             self.match(protoParser.MEMINFO)
-            self.state = 157
+            self.state = 162
             self.match(protoParser.SEMICOLON)
         except RecognitionException as re:
             localctx.exception = re
@@ -1387,23 +1443,23 @@ class protoParser ( Parser ):
     def condblock(self):
 
         localctx = protoParser.CondblockContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 30, self.RULE_condblock)
+        self.enterRule(localctx, 32, self.RULE_condblock)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 159
+            self.state = 164
             self.match(protoParser.LPAREN)
-            self.state = 160
-            self.expr(0)
-            self.state = 161
-            self.match(protoParser.RPAREN)
             self.state = 165
+            self.expr(0)
+            self.state = 166
+            self.match(protoParser.RPAREN)
+            self.state = 170
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1083405514834) != 0):
-                self.state = 162
-                self.statement()
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1083548121170) != 0):
                 self.state = 167
+                self.statement()
+                self.state = 172
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1715,12 +1771,12 @@ class protoParser ( Parser ):
         _parentState = self.state
         localctx = protoParser.ExprContext(self, self._ctx, _parentState)
         _prevctx = localctx
-        _startState = 32
-        self.enterRecursionRule(localctx, 32, self.RULE_expr, _p)
+        _startState = 34
+        self.enterRecursionRule(localctx, 34, self.RULE_expr, _p)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 174
+            self.state = 179
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [23]:
@@ -1728,32 +1784,32 @@ class protoParser ( Parser ):
                 self._ctx = localctx
                 _prevctx = localctx
 
-                self.state = 169
+                self.state = 174
                 self.match(protoParser.MINUS)
-                self.state = 170
+                self.state = 175
                 self.expr(9)
                 pass
             elif token in [27]:
                 localctx = protoParser.NotExprContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-                self.state = 171
+                self.state = 176
                 self.match(protoParser.NOT)
-                self.state = 172
+                self.state = 177
                 self.expr(8)
                 pass
             elif token in [30, 34, 35, 36, 37, 38, 39]:
                 localctx = protoParser.TermExprContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-                self.state = 173
+                self.state = 178
                 self.term()
                 pass
             else:
                 raise NoViableAltException(self)
 
             self._ctx.stop = self._input.LT(-1)
-            self.state = 196
+            self.state = 201
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,16,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
@@ -1761,17 +1817,17 @@ class protoParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    self.state = 194
+                    self.state = 199
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,15,self._ctx)
                     if la_ == 1:
                         localctx = protoParser.MultiplicationExprContext(self, protoParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 176
+                        self.state = 181
                         if not self.precpred(self._ctx, 7):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 7)")
-                        self.state = 177
+                        self.state = 182
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 117440512) != 0)):
@@ -1779,18 +1835,18 @@ class protoParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 178
+                        self.state = 183
                         self.expr(8)
                         pass
 
                     elif la_ == 2:
                         localctx = protoParser.AdditiveExprContext(self, protoParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 179
+                        self.state = 184
                         if not self.precpred(self._ctx, 6):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 6)")
-                        self.state = 180
+                        self.state = 185
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not(_la==22 or _la==23):
@@ -1798,18 +1854,18 @@ class protoParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 181
+                        self.state = 186
                         self.expr(7)
                         pass
 
                     elif la_ == 3:
                         localctx = protoParser.RelationalExprContext(self, protoParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 182
+                        self.state = 187
                         if not self.precpred(self._ctx, 5):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 5)")
-                        self.state = 183
+                        self.state = 188
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 3932160) != 0)):
@@ -1817,18 +1873,18 @@ class protoParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 184
+                        self.state = 189
                         self.expr(6)
                         pass
 
                     elif la_ == 4:
                         localctx = protoParser.EqualityExprContext(self, protoParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 185
+                        self.state = 190
                         if not self.precpred(self._ctx, 4):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
-                        self.state = 186
+                        self.state = 191
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not(_la==16 or _la==17):
@@ -1836,38 +1892,38 @@ class protoParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 187
+                        self.state = 192
                         self.expr(5)
                         pass
 
                     elif la_ == 5:
                         localctx = protoParser.AndExprContext(self, protoParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 188
+                        self.state = 193
                         if not self.precpred(self._ctx, 3):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
-                        self.state = 189
+                        self.state = 194
                         self.match(protoParser.AND)
-                        self.state = 190
+                        self.state = 195
                         self.expr(4)
                         pass
 
                     elif la_ == 6:
                         localctx = protoParser.OrExprContext(self, protoParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 191
+                        self.state = 196
                         if not self.precpred(self._ctx, 2):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
-                        self.state = 192
+                        self.state = 197
                         self.match(protoParser.OR)
-                        self.state = 193
+                        self.state = 198
                         self.expr(3)
                         pass
 
              
-                self.state = 198
+                self.state = 203
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,16,self._ctx)
 
@@ -2077,41 +2133,41 @@ class protoParser ( Parser ):
     def term(self):
 
         localctx = protoParser.TermContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 34, self.RULE_term)
+        self.enterRule(localctx, 36, self.RULE_term)
         self._la = 0 # Token type
         try:
-            self.state = 209
+            self.state = 214
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,17,self._ctx)
             if la_ == 1:
                 localctx = protoParser.ParenAtomContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 199
+                self.state = 204
                 self.match(protoParser.LPAREN)
-                self.state = 200
+                self.state = 205
                 self.expr(0)
-                self.state = 201
+                self.state = 206
                 self.match(protoParser.RPAREN)
                 pass
 
             elif la_ == 2:
                 localctx = protoParser.IntegerAtomContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 203
+                self.state = 208
                 self.match(protoParser.INTEGER)
                 pass
 
             elif la_ == 3:
                 localctx = protoParser.FloatAtomContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 204
+                self.state = 209
                 self.match(protoParser.FLOAT)
                 pass
 
             elif la_ == 4:
                 localctx = protoParser.BooleanAtomContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
-                self.state = 205
+                self.state = 210
                 _la = self._input.LA(1)
                 if not(_la==34 or _la==35):
                     self._errHandler.recoverInline(self)
@@ -2123,21 +2179,21 @@ class protoParser ( Parser ):
             elif la_ == 5:
                 localctx = protoParser.IdAtomContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
-                self.state = 206
+                self.state = 211
                 self.match(protoParser.ID)
                 pass
 
             elif la_ == 6:
                 localctx = protoParser.FuncAtomContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
-                self.state = 207
+                self.state = 212
                 self.funccall()
                 pass
 
             elif la_ == 7:
                 localctx = protoParser.StringAtomContext(self, localctx)
                 self.enterOuterAlt(localctx, 7)
-                self.state = 208
+                self.state = 213
                 self.match(protoParser.STRING)
                 pass
 
@@ -2165,9 +2221,6 @@ class protoParser ( Parser ):
             return self.getTypedRuleContext(protoParser.ParampassContext,0)
 
 
-        def SEMICOLON(self):
-            return self.getToken(protoParser.SEMICOLON, 0)
-
         def getRuleIndex(self):
             return protoParser.RULE_funccall
 
@@ -2191,15 +2244,13 @@ class protoParser ( Parser ):
     def funccall(self):
 
         localctx = protoParser.FunccallContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 36, self.RULE_funccall)
+        self.enterRule(localctx, 38, self.RULE_funccall)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 211
+            self.state = 216
             self.match(protoParser.ID)
-            self.state = 212
+            self.state = 217
             self.parampass()
-            self.state = 213
-            self.match(protoParser.SEMICOLON)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -2258,27 +2309,27 @@ class protoParser ( Parser ):
     def parampass(self):
 
         localctx = protoParser.ParampassContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 38, self.RULE_parampass)
+        self.enterRule(localctx, 40, self.RULE_parampass)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 215
+            self.state = 219
             self.match(protoParser.LPAREN)
-            self.state = 216
+            self.state = 220
             self.expr(0)
-            self.state = 221
+            self.state = 225
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==29:
-                self.state = 217
+                self.state = 221
                 self.match(protoParser.COMMA)
-                self.state = 218
+                self.state = 222
                 self.expr(0)
-                self.state = 223
+                self.state = 227
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 224
+            self.state = 228
             self.match(protoParser.RPAREN)
         except RecognitionException as re:
             localctx.exception = re
@@ -2293,7 +2344,7 @@ class protoParser ( Parser ):
     def sempred(self, localctx:RuleContext, ruleIndex:int, predIndex:int):
         if self._predicates == None:
             self._predicates = dict()
-        self._predicates[16] = self.expr_sempred
+        self._predicates[17] = self.expr_sempred
         pred = self._predicates.get(ruleIndex, None)
         if pred is None:
             raise Exception("No predicate with index:" + str(ruleIndex))

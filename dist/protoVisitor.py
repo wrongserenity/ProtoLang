@@ -54,6 +54,11 @@ class protoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by protoParser#exprstmt.
+    def visitExprstmt(self, ctx:protoParser.ExprstmtContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by protoParser#ifstmt.
     def visitIfstmt(self, ctx:protoParser.IfstmtContext):
         return self.visitChildren(ctx)
